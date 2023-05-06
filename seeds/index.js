@@ -22,7 +22,7 @@ const posts = [
 
 const comments = [
   {
-    body: "This is a comment!",
+    comment_text: "This is a comment!",
     post_id: 1,
     user_id: 1,
   },

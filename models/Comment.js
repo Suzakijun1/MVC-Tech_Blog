@@ -5,13 +5,14 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    body: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    date: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+    comment_text: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
