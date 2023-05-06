@@ -1,16 +1,16 @@
 const sequelize = require("../config/connection");
-const { Blog, User, Comment } = require("../models");
+const { Post, User, Comment } = require("../models");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
-  Blog.findAll({
+  Post.findAll({
     include: [User],
-  }).then((dbBlogData) => {
-    const blogData = dbBlogData.map((blog) => blog.get({ plain: true }));
+  }).then((dbPostData) => {
+    const postData = dbPostData.map((post) => post.get({ plain: true }));
 
     res.render("allPost", {
-      blogData,
-      loggedIn: true,
+      postData,
+      loggedIn: req.session.loggedIn,
     });
   });
 });

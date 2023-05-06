@@ -25,7 +25,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [4],
       },
     },
   },
@@ -34,6 +34,13 @@ User.init(
       beforeCreate: async (userData) => {
         userData.password = await bcrypt.hash(userData.password, 5);
         return userData;
+      },
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
+        return updatedUserData;
       },
     },
     sequelize,
