@@ -1,5 +1,5 @@
 const sequelize = require("../config/connection");
-const { User, Blog, Comment } = require("../models");
+const { User, Post, Comment } = require("../models");
 
 const users = [
   {
@@ -12,7 +12,7 @@ const users = [
   },
 ];
 
-const blogs = [
+const posts = [
   {
     title: "My First Post",
     content: "This is my first post's contents",
@@ -23,7 +23,7 @@ const blogs = [
 const comments = [
   {
     body: "This is a comment!",
-    blog_id: 1,
+    post_id: 1,
     user_id: 1,
   },
 ];
@@ -33,7 +33,7 @@ const seedAll = async () => {
   await User.bulkCreate(users, {
     individualHooks: true,
   });
-  await Blog.bulkCreate(blogs);
+  await Post.bulkCreate(posts);
   await Comment.bulkCreate(comments);
   process.exit(0);
 };
