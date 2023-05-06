@@ -6,11 +6,24 @@ router.get("/", (req, res) => {
   Blog.findAll({
     include: [User],
   }).then((dbBlogData) => {
-    const blogData = dbBlogData.map((blog) => {
-      return blog.get({ plain: true });
+    const blogData = dbBlogData.map((blog) => blog.get({ plain: true }));
+
+    res.render("allPost", {
+      blogData,
+      loggedIn: req.session.loggedIn,
     });
-    res.render("allPost", { layout: "main", blogData });
   });
 });
 
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
 module.exports = router;

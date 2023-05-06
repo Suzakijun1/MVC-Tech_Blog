@@ -6,8 +6,8 @@ const router = require("express").Router();
 // const commentRoutes = require("./api/commentRoutes");
 // router.use("/api/comments", commentRoutes);
 
-// const userRoutes = require("./api/userRoutes.js");
-// router.use("/api/users", userRoutes);
+const userRoutes = require("./api/userRoutes.js");
+router.use("/api/users", userRoutes);
 
 const homeRoute = require("./homeRoute.js");
 router.use("/", homeRoute);
