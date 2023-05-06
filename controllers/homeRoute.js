@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 
     res.render("allPost", {
       blogData,
-      loggedIn: req.session.loggedIn,
+      loggedIn: true,
     });
   });
 });
