@@ -11,6 +11,9 @@ router.use("/api/users", userRoutes);
 
 const homeRoute = require("./homeRoute.js");
 router.use("/", homeRoute);
+
+const dashboardRoutes = require("./dashboardRoutes.js");
+router.use("/dashboard", dashboardRoutes);
 // router.get("/showsessions", (req, res) => {
 //   res.json(req.session);
 // });
