@@ -16,15 +16,15 @@ const blogs = [
   {
     title: "My First Post",
     content: "This is my first post's contents",
-    userId: 1,
+    user_id: 1,
   },
 ];
 
 const comments = [
   {
     body: "This is a comment!",
-    blogId: 1,
-    userId: 1,
+    blog_id: 1,
+    user_id: 1,
   },
 ];
 

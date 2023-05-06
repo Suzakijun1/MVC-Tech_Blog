@@ -1,19 +1,18 @@
 const router = require("express").Router();
 
-const blogRoutes = require("./api/blogRoutes");
-router.use("/api/blogRoutes", blogRoutes);
+// const blogRoutes = require("./api/blogRoutes");
+// router.use("/api/blogRoutes", blogRoutes);
 
-const commentRoutes = require("./api/commentRoutes");
-router.use("/api/comments", commentRoutes);
+// const commentRoutes = require("./api/commentRoutes");
+// router.use("/api/comments", commentRoutes);
 
-const userRoutes = require("./api/userRoutes.js");
-router.use("/api/users", userRoutes);
+// const userRoutes = require("./api/userRoutes.js");
+// router.use("/api/users", userRoutes);
 
-const frontEnd = require("./frontendRoutes");
-router.use("/", frontEnd);
-
-router.get("/showsessions", (req, res) => {
-  res.json(req.session);
-});
+const homeRoute = require("./homeRoute.js");
+router.use("/", homeRoute);
+// router.get("/showsessions", (req, res) => {
+//   res.json(req.session);
+// });
 
 module.exports = router;
