@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json({ msg: "an error occured", err });
+      res.status(500).json({ msg: "an error occurred", err });
     });
 });
 
