@@ -1,8 +1,5 @@
 const router = require("express").Router();
 
-// const blogRoutes = require("./api/blogRoutes");
-// router.use("/api/blogRoutes", blogRoutes);
-
 const commentRoutes = require("./api/commentRoutes");
 router.use("/api/comments", commentRoutes);
 
