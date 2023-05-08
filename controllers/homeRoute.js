@@ -4,7 +4,13 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
   Post.findAll({
-    include: [User],
+    attributes: ["id", "title", "content"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
   }).then((dbPostData) => {
     const postData = dbPostData.map((post) => post.get({ plain: true }));
 
